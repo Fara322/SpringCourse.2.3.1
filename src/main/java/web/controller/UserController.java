@@ -9,7 +9,7 @@ import web.Service.UserService;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class UserController {
 
     @Autowired
@@ -46,7 +46,7 @@ public class UserController {
     public String updateUser(@PathVariable("id") int id, Model model) {
         User user = userService.getUser(id);
         model.addAttribute("user",user);
-        return "/update-user";
+        return "update_user";
     }
     @PostMapping("/update-user")
     public String updateUser(@ModelAttribute("user") User user) {
